@@ -1,0 +1,266 @@
+[
+  {
+    "id": 1,
+    "price": 4.99,
+    "name": "stricta",
+    "description": "The Tillandsia stricta is a small to medium sized air plant that has thick green leaves that grow upwards spiraling along the center of the plant.  This variety of Tillandsia is usually a rich, dark green color and is a very hearty plant making it great for terrariums and other semi-enclosed displays.  As the stricta air plant matures, the thick leaves begin to interweave, creating an almost bush like appearance.  The plant will eventually produce a spike that is the same green coloring of the plant, and soon after will produce brilliant pink/purple hued flowers that are sure to steal the show in any room they are displayed.",
+    "scientific_name": "t.stricta",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/stricta.jpg",
+      "alt": "tillandsia stricta air plant"
+    }
+  },
+  {
+    "id": 2,
+    "price": 4.99,
+    "name": "brachycaulos",
+    "description": "Hailing from the exotic locales of Mexico, Panama, and Venezuela, the Tillandsia brachycaulos green air plant is a very special hybrid version of the beloved brachycaulous. This dense green air plant has sturdy wide leaves that grow one upon the other, resembling the leaves on top of a pineapple!  It starts life with a deep green coloring, and as it matures will transition into a variety of red and pink hues, creating quite the display of coloring!  This air plant will bloom beautiful blue and purple flowers with a hint of yellow.  This variety likes sun, and will change colors when displayed in a sunny spot by a window or patio..",
+    "scientific_name": "t.brachycaulos",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/brachycaulos.jpg",
+      "alt": "tillandsia brachycaulos air plant"
+    }
+  },
+  {
+    "id": 3,
+    "price": 6.99,
+    "name": "Aeranthos",
+    "description": "The Tillandsia aeranthos air plant has a striking set of leaves that grow upward in an almost cone like fashion. The coloring of this plant is a very healthy, clean green hue with leaves that are stiff and sharp to the touch.  This variety will bloom in wonderful fashion, showcasing flowers that are both purple and pink. <br> The shape of the aeranthos allows it to be used in a variety of designs.  A small vase filled with rock or sand will allow the plant to stand out and will create a wonderful focal point to any room it lives in. Or group it together with several smaller air plants as the aeranthos can be a wonderful centerpiece with its bright and colorful bloom!",
+    "scientific_name": "t.aeranthos",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/aeranthos.jpg",
+      "alt": "tillandsia aeranthos air plant"
+    }
+  },
+  {
+    "id": 4,
+    "price": 6.99,
+    "name": "capitata",
+    "description": "Part of our premium air plant collection, the Tillandsia capitata is a beautiful, large growing air plant. This air plant will grow in sizes over 10 inches wide and about 7-10 inches or so high. <br> Originally from Guatemala, the Dominican Republic, Cuba, Honduras and Mexico, the T. capitata has stiff light green velvety leaves that blush peach when in bloom.",
+    "scientific_name": "t.capitata",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/capitata.jpg",
+      "alt": "tillandsia capitata air plant"
+    }
+  },
+  {
+    "id": 5,
+    "price": 4.49,
+    "name": "bulbosa",
+    "description": "This Guatemalan variety of the bulbosa Tillandsia resembles a sea creature, and would be a great compliment to a beach-themed air plant terrarium, nestled in a sea shell, or displayed just about anywhere! This unique-looking dark green air plant shows even more character as it grows, producing a bright red bloom and unusual pup clusters. <br> Make sure when watering the bulbosa guatemala, to shake out any excess water from its base, as water left amongst its leaves can cause it to rot!",
+    "scientific_name": "t.bulbosa",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/bulbosa.jpg",
+      "alt": "tillandsia bulbosa air plant"
+    }
+  },
+  {
+    "id": 6,
+    "price": 4.99,
+    "name": "streptophylla hybrid",
+    "description": "The Tillandsia streptophylla hybrid air plant is a beautiful, bright green plant with wide leaves. Over time as this air plant matures, the leaves will curl and the plant will take on a round, funky shape. Also know as the T. Eric Knobloch, this air plant is a hybrid of the Tillandsia streptophylla and Tillandsia brachycaulos. Originally hybridized back in the 1960s in New Orleans, this is truly a special air plant and one of the more sought-after hybrid Tillandsia! Looks great in an air plant terrarium or on it's own in a special vase or dish.",
+    "scientific_name": "t.streptophylla",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between 10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/streptophylla.jpg",
+      "alt": "tillandsia streptophylla air plant"
+    }
+  },
+  {
+    "id": 7,
+    "price": 15.99,
+    "name": "tectorum ecuador",
+    "description": "The Tillandsia tectorum ecuador is a very unique, rare air plant. While they are smaller in size, they are sure to make a big impact with their fuzzy, snowball-like appearance which they get from their abundance of trichomes. The Tillandsia tectorum ecuador's trichomes not only give them their striking look, but also make them one of the most drought-tolerant air plants, and one of the few that can tolerate full sunlight. <br> Because of this Tillandsia's trichomes, they don't need the weekly soaks that most air plants require. Instead, these fuzzy friends like to be gently misted with water weekly or so. They prefer bright, filtered natural light and need good airflow in order to thrive.",
+    "scientific_name": "t.Tectorum",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between  10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/tectorum-ecuador.jpg",
+      "alt": "tillandsia tectorum ecuador air plant"
+    }
+  },
+  {
+    "id": 8,
+    "price": 23.99,
+    "name": "xerographica",
+    "description": "With its wide curly leaves, the Tillandsia xerographica adds presence to any area it adorns. This variety of air plant hails from the semi desert region of Guatemala and can also be found in Mexico. The xerographica is a very hearty plant, and one of the few varieties that can handle some full sun. This air plant also needs less watering, as it is used to living in dryer desert like conditions.",
+    "scientific_name": "t.xerographica",
+    "family": "tillandsia",
+    "categories": [
+      "airplant"
+    ],
+    "care": [
+      "bright to moderate indirect light",
+      "water 2-3 times a week depending on environment",
+      "needs good air circulation",
+      "Temperatures between  10°C-35°C"
+    ],
+    "image": {
+      "url": "./img/airplants/xerographica.jpg",
+      "alt": "tillandsia xerographica air plant"
+    }
+  },
+  {
+    "id": 9,
+    "price": 9.99,
+    "name": "echeveria lola",
+    "description": "This stiff-leaved succulent is one of the hardiest! The Lola is a pale white/grey echeveria. A perfect option for growers with a West or South facing window as these girls thrive on lots of sun!",
+    "scientific_name": "Echeveria Lola",
+    "family": "crassulaceae",
+    "categories": [
+      "succulent"
+    ],
+    "care": [
+      "bright full sun, partial shade",
+      "water everyother week in warm months and every 3-4 weeks in cold months",
+      "only water when soil is completely dry. This plant likes to dry out completely in between waterings."
+    ],
+    "image": {
+      "url": "./img/succulents/echeveria-lola.jpg",
+      "alt": "Echeveria Lola succulent"
+    }
+  },
+  {
+    "id": 10,
+    "price": 9.99,
+    "name": "echeveria parva",
+    "description": "The echeveria Parva is a charming, tight forming rosette echeveria. With plenty of light, it forms eye-catching reddish-pink tips.",
+    "scientific_name": "Echeveria parva",
+    "family": "crassulaceae",
+    "categories": [
+      "succulent"
+    ],
+    "care": [
+      "bright full sun, partial shade",
+      "water everyother week in warm months and every 3-4 weeks in cold months"
+    ],
+    "image": {
+      "url": "./img/succulents/echeveria-parva.jpg",
+      "alt": "Echeveria parva succulent"
+    }
+  },
+  {
+    "id": 11,
+    "price": 5.99,
+    "name": "Little Jewel",
+    "description": "Pachyveria 'Glauca' is a beautiful succulent that forms spikey rosettes resembling a jewel. Leaves are thick and almost cylindrical. They are silver-blue tipped with red and have a thickcoating of farina that gives the plant a soft, powdery appearance. Flowers arepinkish on the outsideand peach-coloured inside",
+    "scientific_name": "pachyveria 'glauca'",
+    "family": "crassulaceae",
+    "categories": [
+      "succulent"
+    ],
+    "care": [
+      "bright full sun, partial shade",
+      "water everyother week in warm months and every 3-4 weeks in cold months",
+      "only water when soil is completely dry. This plant likes to dry out completely in between waterings."
+    ],
+    "image": {
+      "url": "./img/succulents/pachyveria-glauca.jpg",
+      "alt": "Little Jewel succulent"
+    }
+  },
+  {
+    "id": 12,
+    "price": 9.99,
+    "name": "Echeveria Lotus",
+    "description": "It's pretty easy to understand right away how this Echeveria earned it's name - It's leaves form tightly in a ball shape before they mature and open, which gives this plant the semblance of a blooming lotus! Pale blue in color, with lots of sunlight it will blush in gorgeous pinkish hues.",
+    "scientific_name": "Echeveria 'Lotus'",
+    "family": "crassulaceae",
+    "categories": [
+      "succulent"
+    ],
+    "care": [
+      "bright full sun, partial shade",
+      "water everyother week in warm months and every 3-4 weeks in cold months",
+      "only water when soil is completely dry. This plant likes to dry out completely in between waterings."
+    ],
+    "image": {
+      "url": "./img/succulents/echeveria-lotus.png",
+      "alt": "Echeveria Lotus succulent"
+    }
+  },
+  {
+    "id": 13,
+    "price": "7.98",
+    "name": "Aloe Flow",
+    "description": "Hailing from South Africa, the Aloe Flow is a hybrid between the succulent \"Gasteria\" and the famed Aloe plant! While it may not be used to soothe your wounds, its deep evergreen spikes are perfect for decorating your home.",
+    "scientific_name": "Echeveria",
+    "family": "crassulaceae",
+    "categories": "succulent",
+    "care": "bright",
+    "image": {
+      "url": "./img/succulents/echeveria-lotus.png",
+      "alt": "Echeveria Lotus succulent"
+    },
+    "plant_name": "Aloe",
+    "image_url": "./img/succulents/echeveria-lotus.png",
+    "image_alt": "Echeveria"
+  }
+]

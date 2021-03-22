@@ -1,0 +1,56 @@
+<h1>{{title}}</h1>
+
+<h2>Plant List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Image</th>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Family</th>
+      <th>Categories</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  {{#each data}}
+  <tr>
+    <td>{{ id }}</td>
+    <td><img src="{{ image.url }}" alt="{{image.alt}}" /></td>
+    <td>{{name}} ({{scientific_name}})</td>
+    <td>{{ price }}</td>
+    <td>{{ family }}</td>
+    <td>
+      {{#each categories }}
+      {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
+      {{/each}}
+    </td>
+    <td><a href="/modify/{{id}}">Edit</a></td>
+    <td><a href="/api/delete/{{id}}" class="delete">Delete</a></td>
+    {{!-- <td>{{description}}</td> --}}
+  </tr>
+  {{/each}}
+</table>
+
+<script>
+  const tableBtns = document.querySelectorAll('table a')
+
+  Array.from(tableBtns).forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const classList = Array.from(e.target.classList)
+
+      if (classList.includes('delete')) {
+        e.preventDefault()
+        const url = e.target.href
+        fetch(url, {
+          method: "DELETE"
+        })
+          .then(res => res.json())
+          .then(json => console.log(json))
+      }
+
+    })
+  })
+</script>

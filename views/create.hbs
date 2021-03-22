@@ -1,0 +1,85 @@
+<h1>{{title}}</h1>
+<form id="create" action="/api/create" method="POST">
+
+  <div class="col">
+    <div>
+      <label for="plant_name">Plant Name</label>
+      <input type="text" id="plant_name" name="plant_name">
+    </div>
+
+    <div>
+      <label for="scientific_name">Scientific Name</label>
+      <input type="text" id="scientific_name" name="scientific_name">
+    </div>
+
+    <div>
+      <label for="description">Description</label>
+      <textarea type="text" id="description" name="description"></textarea>
+    </div>
+
+    <div>
+      <label for="price">Price</label>
+      <input type="text" id="price" name="price">
+    </div>
+
+    <div>
+      <label for="family">Family</label>
+      <input type="text" id="family" name="family">
+    </div>
+
+
+  </div>
+  <div class="col">
+    <div>
+      <label for="categories">Categories</label>
+      <input type="text" id="categories" name="categories">
+    </div>
+
+    <div>
+      <label for="care">Care</label>
+      <input type="text" id="care" name="care">
+    </div>
+
+    <div>
+      <label for="image_url">Image URL</label>
+      <input type="text" id="image_url" name="image_url">
+    </div>
+
+    <div>
+      <label for="image_alt">Image Alt</label>
+      <input type="text" id="image_alt" name="image_alt">
+    </div>
+    <input type="submit" value="submit">
+  </div>
+
+
+</form>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script>
+<script>
+  const formElem = document.getElementById('create')
+
+  const handleSubmit = e => {
+    e.preventDefault()
+
+    const form = e.currentTarget
+    const url = form.action
+    const data = new FormData(form)
+    // https://simonplend.com/how-to-use-fetch-to-post-form-data-as-json-to-your-api/
+    const plainFormData = Object.fromEntries(data.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
+
+    fetch(url, {
+      method: 'POST',
+      body: formDataJsonString,
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: "application/json"
+      },
+    })
+      .then(res => res.json())
+      .then(json => console.log("res:", json))
+
+  }
+
+  formElem.addEventListener("submit", handleSubmit)
+</script>
