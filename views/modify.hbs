@@ -4,12 +4,12 @@
   <div class="col">
     <div>
       <label for="plant_name">Plant Name</label>
-      <input type="text" id="plant_name" name="plant_name" value={{plant.name}}>
+      <input type="text" id="plant_name" name="plant_name" value="{{plant.name}}">
     </div>
 
     <div>
       <label for="scientific_name">Scientific Name</label>
-      <input type="text" id="scientific_name" name="scientific_name" value={{plant.scientific_name}}>
+      <input type="text" id="scientific_name" name="scientific_name" value="{{plant.scientific_name}}">
     </div>
 
     <div>
@@ -19,39 +19,39 @@
 
     <div>
       <label for="price">Price</label>
-      <input type="text" id="price" name="price" value={{plant.price}}>
+      <input type="text" id="price" name="price" value="{{plant.price}}">
     </div>
 
     <div>
       <label for="family">Family</label>
-      <input type="text" id="family" name="family" value={{plant.family}}>
+      <input type="text" id="family" name="family" value="{{plant.family}}">
     </div>
 
     <div>
       <label for="image_url">Genus</label>
-      <input type="text" id="genus" name="genus" value={{plant.genus}}>
+      <input type="text" id="genus" name="genus" value="{{plant.genus}}">
     </div>
   </div>
   <div class="col">
 
     <div>
       <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}">
+      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}" data-tag-picker  placeholder="Category 1, Category 2">
     </div>
 
     <div>
-      <label for="care">Care</label>
-      <input type="text" id="care" name="care" value={{array_to_comma_string plant.care}}>
+      <label for="care">Care Instructions</label>
+      <textarea name="care" id="care" cols="60" rows="10">{{array_to_comma_string plant.care}}</textarea>
     </div>
 
     <div>
       <label for="image_url">Image URL</label>
-      <input type="text" id="image_url" name="image_url" value={{plant.image.url}}>
+      <input type="text" id="image_url" name="image_url" value="{{plant.image.url}}">
     </div>
 
     <div>
       <label for="image_alt">Image Alt</label>
-      <input type="text" id="image_alt" name="image_alt" value={{plant.image.alt}}>
+      <input type="text" id="image_alt" name="image_alt" value="{{plant.image.alt}}">
     </div>
 
     <input type="submit" value="submit">
@@ -59,6 +59,11 @@
 
 </form>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script>
+<script src="/js/tag-picker/index.min.js"></script>
+<script>
+  const pickers = document.querySelectorAll('[data-tag-picker]')
+  Array.from(pickers).forEach(p => new TP(p))
+</script>
 <script>
   const formElem = document.getElementById('create')
 

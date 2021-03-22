@@ -1,7 +1,5 @@
 <h1>{{title}}</h1>
-
 <h2>Plant List</h2>
-
 <table>
   <thead>
     <tr>
@@ -19,7 +17,7 @@
   {{#each data}}
   <tr>
     <td>{{ id }}</td>
-    <td><img src="{{ image.url }}" alt="{{image.alt}}" /></td>
+    <td><img src="{{ ../image_base_url }}{{format_relative_image_path image.url }}" alt="{{image.alt}}" /></td>
     <td>{{name}} ({{scientific_name}})</td>
     <td>{{ price }}</td>
     <td>{{ family }}</td>

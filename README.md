@@ -16,6 +16,8 @@ A configurable admin panel for performing CRUD operations on local JSON files.
 PORT=5000
 # path relative to the root where you will be storing the JSON data
 DATA_PATH=./data/plants.json
+# external image url
+IMAGE_BASE_URL=http://localhost:3000/
 # used for adding debugging to the server during testing
 DEBUG=goodplants-admin:*
 ```

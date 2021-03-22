@@ -4,54 +4,54 @@
   <div class="col">
     <div>
       <label for="plant_name">Plant Name</label>
-      <input type="text" id="plant_name" name="plant_name">
+      <input type="text" id="plant_name" name="plant_name" placeholder="Aloe Flow">
     </div>
 
     <div>
       <label for="scientific_name">Scientific Name</label>
-      <input type="text" id="scientific_name" name="scientific_name">
+      <input type="text" id="scientific_name" name="scientific_name" placeholder="Echeveria">
     </div>
 
     <div>
       <label for="description">Description</label>
-      <textarea type="text" id="description" name="description"></textarea>
+      <textarea type="text" id="description" name="description" placeholder="Hailing from South Africa, the..."></textarea>
     </div>
 
     <div>
       <label for="price">Price</label>
-      <input type="text" id="price" name="price">
+      <input type="text" id="price" name="price" placeholder="9.99">
     </div>
 
     <div>
       <label for="family">Family</label>
-      <input type="text" id="family" name="family">
+      <input type="text" id="family" name="family" placeholder="crassulaceae">
     </div>
 
     <div>
       <label for="image_url">Genus</label>
-      <input type="text" id="genus" name="genus">
+      <input type="text" id="genus" name="genus" placeholder="Gasteraloe">
     </div>
 
   </div>
   <div class="col">
     <div>
       <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories">
+      <input type="text" id="categories" name="categories" data-tag-picker placeholder="Category 1, Category 2">
     </div>
 
     <div>
       <label for="care">Care</label>
-      <input type="text" id="care" name="care">
+      <input type="text" id="care" name="care" placeholder="bright full sun, partial shade">
     </div>
 
     <div>
       <label for="image_url">Image URL</label>
-      <input type="text" id="image_url" name="image_url">
+      <input type="text" id="image_url" name="image_url" placeholder="./img/succulents/echeveria-lotus.png">
     </div>
 
     <div>
       <label for="image_alt">Image Alt</label>
-      <input type="text" id="image_alt" name="image_alt">
+      <input type="text" id="image_alt" name="image_alt" placeholder="Echeveria">
     </div>
     <input type="submit" value="submit">
   </div>
@@ -59,6 +59,11 @@
 
 </form>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script>
+<script src="/js/tag-picker/index.min.js"></script>
+<script>
+  const pickers = document.querySelectorAll('[data-tag-picker]')
+  Array.from(pickers).forEach(p => new TP(p))
+</script>
 <script>
   const formElem = document.getElementById('create')
 

@@ -1,9 +1,15 @@
+* {
+  box-sizing: border-box;
+}
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Comfortaa", Helvetica, Arial, sans-serif;
   background-color: rgb(209, 231, 224);
 }
 
+h1 {
+  font-size: 3em;
+}
 a {
   color: #473314;
   font-weight: bold;
@@ -11,12 +17,19 @@ a {
 
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 
   a {
     font-size: 20px;
     padding: 10px 20px;
-    color: #473314;
+    background: #473314;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
+      cursor: pointer;
+    }
   }
 }
 
@@ -26,6 +39,23 @@ table {
   // width: 700px;
   padding: 20px;
   border-radius: 10px;
+
+  a {
+    font-size: 14px;
+    padding: 4px 10px;
+    background: #473314;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    &:hover {
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
+      cursor: pointer;
+    }
+
+    &.delete {
+      background-color: rgb(99, 18, 18);
+    }
+  }
 }
 
 tr:nth-child(even) {
@@ -61,23 +91,29 @@ table td {
 #create {
   div {
     input,
-    textarea {
+    textarea,
+    .tag-picker {
       margin-bottom: 10px;
       padding: 10px;
-      border: 2px solid #ccc;
+      border: 2px solid #00897b;
       border-radius: 2px;
+      width: 300px;
     }
     label {
       display: block;
+      padding-bottom: 10px;
     }
   }
   input[type="submit"] {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #fff;
     border: 0;
-    border-top-left-radius: 10px;
-    color: #000;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background: #473314;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    width: auto;
 
     &:hover {
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
@@ -94,3 +130,5 @@ form {
     padding: 20px;
   }
 }
+
+@import "tag-picker";
