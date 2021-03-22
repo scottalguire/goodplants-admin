@@ -254,7 +254,9 @@
     "scientific_name": "Echeveria",
     "family": "crassulaceae",
     "categories": "succulent",
-    "care": "bright",
+    "care": [
+      "bright"
+    ],
     "image": {
       "url": "./img/succulents/echeveria-lotus.png",
       "alt": "Echeveria Lotus succulent"
@@ -262,5 +264,25 @@
     "plant_name": "Aloe",
     "image_url": "./img/succulents/echeveria-lotus.png",
     "image_alt": "Echeveria"
+  },
+  {
+    "id": 14,
+    "price": "2.22",
+    "name": "Test",
+    "description": "de",
+    "scientific_name": "sc",
+    "family": "f",
+    "genus": "genus",
+    "categories": [
+      "cat1",
+      "cat2"
+    ],
+    "care": [
+      "care1"
+    ],
+    "image": {
+      "url": "url",
+      "alt": "alt"
+    }
   }
 ]

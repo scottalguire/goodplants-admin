@@ -26,17 +26,22 @@
       <label for="family">Family</label>
       <input type="text" id="family" name="family" value={{plant.family}}>
     </div>
+
+    <div>
+      <label for="image_url">Genus</label>
+      <input type="text" id="genus" name="genus" value={{plant.genus}}>
+    </div>
   </div>
   <div class="col">
 
     <div>
       <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories" value={{plant.categories}}>
+      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}">
     </div>
 
     <div>
       <label for="care">Care</label>
-      <input type="text" id="care" name="care" value={{plant.care}}>
+      <input type="text" id="care" name="care" value={{array_to_comma_string plant.care}}>
     </div>
 
     <div>

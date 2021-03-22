@@ -10,6 +10,7 @@
       <th>Name</th>
       <th>Price</th>
       <th>Family</th>
+      <th>Genus</th>
       <th>Categories</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -22,6 +23,7 @@
     <td>{{name}} ({{scientific_name}})</td>
     <td>{{ price }}</td>
     <td>{{ family }}</td>
+    <td>{{ genus }}</td>
     <td>
       {{#each categories }}
       {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
