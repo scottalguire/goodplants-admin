@@ -53,6 +53,17 @@ router.patch("/update/:id", function (req, res, next) {
 
     const currentPlant = json[matchIndex];
 
+    /**
+     * Splits textarea input for plant.care at new line characters to build an array of strings. Omits empty new lines.
+     **/
+    const formatCare = (care) => {
+      const lines = care.split("\n");
+      return lines.reduce((acc, line, index) => {
+        if (line.length > 1) acc.push(line.trim());
+        return acc;
+      }, []);
+    };
+
     const newPlant = {
       id: currentPlant.id,
       price: price || currentPlant.price,
@@ -62,7 +73,7 @@ router.patch("/update/:id", function (req, res, next) {
       family: family || currentPlant.family,
       genus: genus || currentPlant.genus,
       categories: (categories && categories.split(",").map((c) => c.trim())) || currentPlant.categories,
-      care: (care && care.split(",").map((c) => c.trim())) || currentPlant.care,
+      care: (care && formatCare(care)) || currentPlant.care,
       image: { url: image_url || currentPlant.image.url, alt: image_alt || currentPlant.image.alt },
     };
 
@@ -99,8 +110,8 @@ router.post("/create", function (req, res, next) {
       family: family || "",
       genus: genus || "",
       categories: (categories && categories.split(",").map((c) => c.trim())) || [],
-      care: (care && care.split(",").map((c) => c.trim())) || [],
-      image: { url: image_url || "", alt: image_alt || "" },
+      care: (care && formatCare(care)) || [],
+      image: { url: image_url || "", alt: image_alt || "Plant" },
     };
 
     const dataModified = [...json, plant];

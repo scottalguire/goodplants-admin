@@ -6,7 +6,49 @@ const getPlantsJSON = require("../utils").getPlantsJSON;
 router.get("/", function (req, res, next) {
   getPlantsJSON()
     .then((json) => {
-      console.log(process.env.IMAGE_BASE_URL);
+      //"https://stage.getedealer.com/retail/39-qc4EqQtmYstAm7N_frQ?
+      // type=VEHICLE&
+      // status[0]=FOR_SALE&
+      // status[1]=DRAFT&
+      // archived=false&
+      // sort[0][id]=customersCount&
+      // sort[0][sortDirection]=DESCENDING"
+
+      // format: queryType[index][key]=[value]
+      // example: sort[0][id]=price&sort[0][direction]=ASCENDING
+      // req.query = {
+      //   sort: [
+      //     {
+      //       id: "price",
+      //       direction: "ASCENDING",
+      //     },
+      //   ],
+      // };
+
+      console.log(req.query);
+
+      const sorter = (arr, key, direction = "DESCENDING") =>
+        arr.sort((a, b) => {
+          if (direction === "DESCENDING") {
+            return a[key] > b[key] ? 1 : -1;
+          } else {
+            return a[key] < b[key] ? 1 : -1;
+          }
+        });
+
+      const sort = req.query && req.query.sort;
+
+      if (sort) {
+        sort.forEach((sortObject) => {
+          if (!sortObject.id) return;
+
+          switch (sortObject.id) {
+            case "id":
+              sorter(json, "id", sortObject.sortDirection || "DESCENDING");
+          }
+        });
+      }
+
       res.render("home", { title: "goodplants Admin", image_base_url: process.env.IMAGE_BASE_URL, data: json });
     })
     .catch((err) => console.log(err));

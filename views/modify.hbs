@@ -1,4 +1,7 @@
 <h1>{{title}}</h1>
+<div>
+  <h2>Plant ID: {{plant.id}}</h2>
+</div>
 <form id="create" action="/api/update/{{plant.id}}" method="POST">
 
   <div class="col">
@@ -36,12 +39,13 @@
 
     <div>
       <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}" data-tag-picker  placeholder="Category 1, Category 2">
+      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}"
+        data-tag-picker placeholder="Category 1, Category 2">
     </div>
 
     <div>
       <label for="care">Care Instructions</label>
-      <textarea name="care" id="care" cols="60" rows="10">{{array_to_comma_string plant.care}}</textarea>
+      <textarea name="care" id="care" cols="60" rows="10">{{array_to_new_line_string plant.care}}</textarea>
     </div>
 
     <div>
@@ -55,6 +59,7 @@
     </div>
 
     <input type="submit" value="submit">
+    <span class="submit-status"></span>
   </div>
 
 </form>
@@ -66,6 +71,7 @@
 </script>
 <script>
   const formElem = document.getElementById('create')
+  const submitStatus = formElem.querySelector('.submit-status')
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -76,6 +82,8 @@
     // https://simonplend.com/how-to-use-fetch-to-post-form-data-as-json-to-your-api/
     const plainFormData = Object.fromEntries(data.entries());
     const formDataJsonString = JSON.stringify(plainFormData);
+    submitStatus.classList.add("sending")
+    submitStatus.textContent = "Sending..."
 
     fetch(url, {
       method: 'PATCH',
@@ -86,7 +94,26 @@
       },
     })
       .then(res => res.json())
-      .then(json => console.log("res:", json))
+      .then(json => {
+        console.log("res:", json)
+        submitStatus.classList.add("success")
+        submitStatus.textContent = "Success!"
+      })
+      .catch(err => {
+        console.log(err)
+        submitStatus.textContent = "Error: " + err
+        submitStatus.classList.add("error")
+      })
+      .finally(() => {
+        submitStatus.classList.remove("sending")
+
+        submitStatus.addEventListener('animationend', () => {
+          submitStatus.classList.remove("animate__animated", "animate__fadeOut", "success")
+          submitStatus.textContent = ""
+        })
+
+        submitStatus.classList.add("animate__animated", "animate__fadeOut")
+      })
 
   }
 

@@ -3,7 +3,7 @@
 <table>
   <thead>
     <tr>
-      <th>ID</th>
+      <th data-sort-id="id">ID</th>
       <th>Image</th>
       <th>Name</th>
       <th>Price</th>
@@ -14,28 +14,54 @@
       <th>Delete</th>
     </tr>
   </thead>
-  {{#each data}}
-  <tr>
-    <td>{{ id }}</td>
-    <td><img src="{{ ../image_base_url }}{{format_relative_image_path image.url }}" alt="{{image.alt}}" /></td>
-    <td>{{name}} ({{scientific_name}})</td>
-    <td>{{ price }}</td>
-    <td>{{ family }}</td>
-    <td>{{ genus }}</td>
-    <td>
-      {{#each categories }}
-      {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
-      {{/each}}
-    </td>
-    <td><a href="/modify/{{id}}">Edit</a></td>
-    <td><a href="/api/delete/{{id}}" class="delete">Delete</a></td>
-    {{!-- <td>{{description}}</td> --}}
-  </tr>
-  {{/each}}
+  <tbody>
+    {{#each data}}
+    <tr>
+      <td>{{ id }}</td>
+      <td><img src="{{ ../image_base_url }}{{format_relative_image_path image.url }}" alt="{{image.alt}}" /></td>
+      <td>{{name}} <em>({{scientific_name}})</em></td>
+      <td>{{ price }}</td>
+      <td>{{ family }}</td>
+      <td>{{ genus }}</td>
+      <td>
+        {{#each categories }}
+        {{#if @last}}{{this}}{{else}}{{this}}, {{/if}}
+        {{/each}}
+      </td>
+      <td><a href="/modify/{{id}}">Edit</a></td>
+      <td><a href="/api/delete/{{id}}" class="delete">Delete</a></td>
+    </tr>
+    {{/each}}
+  </tbody>
 </table>
-
+<script src="js/qs.js"></script>
 <script>
+  const tableHeaders = document.querySelectorAll('table th')
   const tableBtns = document.querySelectorAll('table a')
+  const params = Qs.parse(window.location.search.substring(1)) // => { sort: [{ id: "id", sortDirection: "ASC" }] }
+
+  Array.from(tableHeaders).forEach(th => {
+    const id = th.dataset.sortId
+    // if current table header sort id exists in params
+    const sortIndex = id && params.sort && params.sort.findIndex(p => p.id === id)
+    const direction = sortIndex !== undefined && params.sort[sortIndex].sortDirection
+    th.dataset.sortDirection = direction
+
+    th.addEventListener('click', (e) => {
+      let localParams = { ...params }
+      // adjust table header data.sortdirection based on current url params
+      if (sortIndex !== undefined) {
+        console.log(localParams.sort[sortIndex])
+        localParams.sort[sortIndex] = { id, sortDirection: direction === "ASCENDING" ? "DESCENDING" : "ASCENDING" }
+      } else {
+        const sort = localParams.sort || []
+        localParams = { sort: [...sort, { id, sortDirection: direction || "DESCENDING" }] }
+      }
+
+      const stringParams = Qs.stringify(localParams)
+      window.location = "/?" + stringParams
+    })
+  })
 
   Array.from(tableBtns).forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -48,7 +74,11 @@
           method: "DELETE"
         })
           .then(res => res.json())
-          .then(json => console.log(json))
+          .then(json => {
+            console.log(json)
+            location.reload()
+          })
+          .catch(err => console.log("ERROR:", err))
       }
 
     })
