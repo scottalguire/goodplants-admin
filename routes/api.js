@@ -42,6 +42,7 @@ router.patch("/update/:id", function (req, res, next) {
       plant_name,
       description,
       price,
+      prices,
       family,
       genus,
       categories,
@@ -68,6 +69,7 @@ router.patch("/update/:id", function (req, res, next) {
     const newPlant = {
       id: currentPlant.id,
       price: price || currentPlant.price,
+      prices: prices || currentPlant.prices || [],
       name: plant_name || currentPlant.name,
       description: description || currentPlant.description,
       scientific_name: scientific_name || currentPlant.scientific_name,
@@ -76,7 +78,7 @@ router.patch("/update/:id", function (req, res, next) {
       categories: (categories && categories.split(",").map((c) => c.trim())) || currentPlant.categories,
       care: (care && formatCare(care)) || currentPlant.care,
       image: { url: image_url || currentPlant.image.url, alt: image_alt || currentPlant.image.alt },
-      images: images || currentPlant.images,
+      images: images || currentPlant.images || [{ src: "https://source.unsplash.com/200x200?plant", alt: "Plant" }],
     };
 
     const newJson = [...json];
@@ -95,6 +97,7 @@ router.post("/create", function (req, res, next) {
         plant_name,
         description,
         price,
+        prices,
         family,
         genus,
         categories,
@@ -108,6 +111,7 @@ router.post("/create", function (req, res, next) {
       const plant = {
         id: json.length + 1,
         price: price || "",
+        prices: prices || [],
         name: plant_name || "",
         description: description || "",
         scientific_name: scientific_name || "",
@@ -116,7 +120,7 @@ router.post("/create", function (req, res, next) {
         categories: (categories && categories.split(",").map((c) => c.trim())) || [],
         care: (care && formatCare(care)) || [],
         image: { url: image_url || "", alt: image_alt || "Plant" },
-        images: images || [],
+        images: images || [{ src: "https://source.unsplash.com/200x200?plant", alt: "Plant" }],
       };
 
       const dataModified = [...json, plant];

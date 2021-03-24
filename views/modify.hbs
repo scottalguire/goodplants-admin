@@ -4,85 +4,154 @@
 </div>
 <form id="create" action="/api/update/{{plant.id}}" method="POST">
 
-  <div class="col">
-    <div>
-      <label for="plant_name">Plant Name</label>
-      <input type="text" id="plant_name" name="plant_name" value="{{plant.name}}">
-    </div>
+  <div class="row">
+    <div class="col">
+      <div>
+        <label for="plant_name">Plant Name</label>
+        <input type="text" id="plant_name" name="plant_name" value="{{plant.name}}">
+      </div>
 
-    <div>
-      <label for="scientific_name">Scientific Name</label>
-      <input type="text" id="scientific_name" name="scientific_name" value="{{plant.scientific_name}}">
-    </div>
+      <div>
+        <label for="scientific_name">Scientific Name</label>
+        <input type="text" id="scientific_name" name="scientific_name" value="{{plant.scientific_name}}">
+      </div>
 
-    <div>
-      <label for="description">Description</label>
-      <textarea type="text" id="description" name="description" cols="60" rows="10">{{plant.description}}</textarea>
-    </div>
+      <div>
+        <label for="description">Description</label>
+        <textarea type="text" id="description" name="description" cols="60" rows="10">{{plant.description}}</textarea>
+      </div>
 
-    <div>
-      <label for="price">Price</label>
-      <input type="text" id="price" name="price" value="{{plant.price}}">
-    </div>
+      <div>
+        <label for="price">Price (legacy)</label>
+        <input type="text" id="price" name="price" value="{{plant.price}}">
+      </div>
 
-    <div>
-      <label for="family">Family</label>
-      <input type="text" id="family" name="family" value="{{plant.family}}">
-    </div>
+      <div>
+        <h3>Prices</h3>
+      </div>
+      <div class="repeater" data-repeater>
+        {{#if plant.prices}}
+        {{#each plant.prices }}
+        <div class="group">
+          <div class="col">
+            <div>
+              <label for="prices[{{@index}}][label]">Price Label</label>
+              <input type="text" id="prices[{{@index}}][label]" name="images[{{@index}}][label]" placeholder="Small"
+                class="half" value="{{this.label}}">
+            </div>
+            <div>
+              <label for="prices[{{@index}}][value]">Price Amount</label>
+              <input type="text" id="prices[{{@index}}][value]" name="images[{{@index}}][value]" placeholder="4.99"
+                class="half" value="{{this.value}}">
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        {{else}}
+        <div class="group">
+          <div class="col">
+            <div>
+              <label for="prices[0][label]">Price Label</label>
+              <input type="text" id="prices[0][label]" name="images[0][label]" placeholder="Small" class="half">
+            </div>
+            <div>
+              <label for="prices[0][value]">Price Amount</label>
+              <input type="text" id="prices[0][value]" name="images[0][value]" placeholder="4.99" class="half">
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
 
-    <div>
-      <label for="image_url">Genus</label>
-      <input type="text" id="genus" name="genus" value="{{plant.genus}}">
+      <div>
+        <label for="family">Family</label>
+        <input type="text" id="family" name="family" value="{{plant.family}}">
+      </div>
+
+      <div>
+        <label for="image_url">Genus</label>
+        <input type="text" id="genus" name="genus" value="{{plant.genus}}">
+      </div>
+    </div>
+    <div class="col">
+
+      <div>
+        <label for="categories">Categories</label>
+        <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}"
+          data-tag-picker placeholder="Category 1, Category 2">
+      </div>
+
+      <div>
+        <label for="care">Care Instructions</label>
+        <textarea name="care" id="care" cols="60" rows="10">{{array_to_new_line_string plant.care}}</textarea>
+      </div>
+
+      <div>
+        <label for="image_url">Image URL (legacy)</label>
+        <input type="text" id="image_url" name="image_url" value="{{plant.image.url}}">
+      </div>
+
+      <div>
+        <label for="image_alt">Image Alt (legacy)</label>
+        <input type="text" id="image_alt" name="image_alt" value="{{plant.image.alt}}">
+      </div>
+
+      <div>
+        <h3>Images</h3>
+      </div>
+      <div class="repeater" data-repeater="image">
+        {{#if plant.images}}
+        {{#each plant.images }}
+        <div class="group">
+          <div class="col">
+            <div class="img-wrap">
+              <img src="{{this.src}}" alt="{{this.alt}}">
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <label for="images[{{@index}}][src]">Image URL</label>
+              <input type="text" id="images[{{@index}}][src]" name="images[{{@index}}][src]"
+                placeholder="./img/succulents/echeveria-lotus.png" value="{{this.src}}">
+            </div>
+
+            <div>
+              <label for="images[{{@index}}][alt]">Image Alt</label>
+              <input type="text" id="images[{{@index}}][alt]" name="images[{{@index}}][alt]" placeholder="Echeveria"
+                value="{{this.alt}}">
+            </div>
+          </div>
+        </div>
+        {{/each}}
+        {{ else }}
+        <div class="group">
+          <div class="col">
+            <div class="img-wrap">
+              <img src="http://placehold.it/100x100" alt="">
+            </div>
+          </div>
+          <div class="col">
+            <div>
+              <label for="images[0][src]">Image URL</label>
+              <input type="text" id="images[0][src]" name="images[0][src]"
+                placeholder="./img/succulents/echeveria-lotus.png" value="">
+            </div>
+
+            <div>
+              <label for="images[0][alt]">Image Alt</label>
+              <input type="text" id="images[0][alt]" name="images[0][alt]" placeholder="Echeveria" value="">
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+
     </div>
   </div>
   <div class="col">
-
-    <div>
-      <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories" value="{{array_to_comma_string plant.categories }}"
-        data-tag-picker placeholder="Category 1, Category 2">
-    </div>
-
-    <div>
-      <label for="care">Care Instructions</label>
-      <textarea name="care" id="care" cols="60" rows="10">{{array_to_new_line_string plant.care}}</textarea>
-    </div>
-
-    <div>
-      <label for="image_url">Image URL (legacy)</label>
-      <input type="text" id="image_url" name="image_url" value="{{plant.image.url}}">
-    </div>
-
-    <div>
-      <label for="image_alt">Image Alt (legacy)</label>
-      <input type="text" id="image_alt" name="image_alt" value="{{plant.image.alt}}">
-    </div>
-
-    <div>
-      <h3>Images</h3>
-    </div>
-    <div class="repeater">
-      {{#each plant.images }}
-      <div class="group">
-        <div>
-          <label for="images[{{@index}}][src]">Image URL</label>
-          <input type="text" id="images[{{@index}}][src]" name="images[{{@index}}][src]"
-            placeholder="./img/succulents/echeveria-lotus.png" value="{{this.src}}">
-        </div>
-
-        <div>
-          <label for="images[{{@index}}][alt]">Image Alt</label>
-          <input type="text" id="images[{{@index}}][alt]" name="images[{{@index}}][alt]" placeholder="Echeveria"
-            value="{{this.alt}}">
-        </div>
-      </div>
-      {{/each}}
-    </div>
-
     <input type="submit" value="submit">
     <span class="submit-status"></span>
   </div>
-
 </form>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
   integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="

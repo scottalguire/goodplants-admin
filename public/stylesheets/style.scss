@@ -31,7 +31,10 @@ nav {
     color: #fff;
     text-decoration: none;
     margin: 5px;
+    transition: 0.2s box-shadow;
+
     &:hover {
+      transition: 0.2s box-shadow;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
       cursor: pointer;
     }
@@ -122,14 +125,38 @@ tbody {
 }
 
 #create {
+  flex-wrap: wrap;
+
+  .row {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0;
+  }
   .repeater {
+    margin-bottom: 20px;
+
     .group {
-      padding-bottom: 10px;
+      padding-right: 10px;
       margin-bottom: 10px;
       border-bottom: 1px solid #00897b;
+      display: flex;
+      align-items: center;
+      background: #eef6f4;
+
       &:last-of-type {
         border: 0;
       }
+    }
+    button {
+      font-size: 12px;
+      border: 0;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00897b;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px;
+      width: auto;
     }
   }
   div {
@@ -146,6 +173,11 @@ tbody {
         outline: 0;
       }
     }
+
+    .half {
+      width: 150px;
+    }
+
     label {
       display: block;
       padding-bottom: 10px;
@@ -154,6 +186,7 @@ tbody {
   input[type="submit"],
   button {
     border: 0;
+    border-radius: 2px;
     margin-top: 20px;
     font-size: 20px;
     padding: 10px 20px;
@@ -162,12 +195,14 @@ tbody {
     text-decoration: none;
     margin: 5px;
     width: auto;
+    transition: 0.2s box-shadow;
 
     &:hover,
     &:focus {
       border: 0;
       outline: 0;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
+      transition: 0.2s box-shadow;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.404);
       cursor: pointer;
     }
   }

@@ -25,8 +25,10 @@ nav {
     background: #473314;
     color: #fff;
     text-decoration: none;
-    margin: 5px; }
+    margin: 5px;
+    transition: 0.2s box-shadow; }
     nav a:hover {
+      transition: 0.2s box-shadow;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
       cursor: pointer; }
 
@@ -89,48 +91,71 @@ table td {
 tbody tr td:first-child {
   width: auto; }
 
-#create .repeater .group {
-  padding-bottom: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid #00897b; }
-  #create .repeater .group:last-of-type {
-    border: 0; }
-
-#create div input,
-#create div textarea,
-#create div .tag-picker {
-  margin-bottom: 10px;
-  padding: 10px;
-  border: 2px solid #00897b;
-  border-radius: 2px;
-  width: 300px; }
-  #create div input:focus,
-  #create div textarea:focus,
-  #create div .tag-picker:focus {
-    outline: 0; }
-
-#create div label {
-  display: block;
-  padding-bottom: 10px; }
-
-#create input[type="submit"],
-#create button {
-  border: 0;
-  margin-top: 20px;
-  font-size: 20px;
-  padding: 10px 20px;
-  background: #473314;
-  color: #fff;
-  text-decoration: none;
-  margin: 5px;
-  width: auto; }
-  #create input[type="submit"]:hover, #create input[type="submit"]:focus,
-  #create button:hover,
-  #create button:focus {
+#create {
+  flex-wrap: wrap; }
+  #create .row {
+    display: flex;
+    width: 100%;
+    flex-shrink: 0; }
+  #create .repeater {
+    margin-bottom: 20px; }
+    #create .repeater .group {
+      padding-right: 10px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #00897b;
+      display: flex;
+      align-items: center;
+      background: #eef6f4; }
+      #create .repeater .group:last-of-type {
+        border: 0; }
+    #create .repeater button {
+      font-size: 12px;
+      border: 0;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #00897b;
+      color: #fff;
+      text-decoration: none;
+      margin: 5px;
+      width: auto; }
+  #create div input,
+  #create div textarea,
+  #create div .tag-picker {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 2px solid #00897b;
+    border-radius: 2px;
+    width: 300px; }
+    #create div input:focus,
+    #create div textarea:focus,
+    #create div .tag-picker:focus {
+      outline: 0; }
+  #create div .half {
+    width: 150px; }
+  #create div label {
+    display: block;
+    padding-bottom: 10px; }
+  #create input[type="submit"],
+  #create button {
     border: 0;
-    outline: 0;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.404);
-    cursor: pointer; }
+    border-radius: 2px;
+    margin-top: 20px;
+    font-size: 20px;
+    padding: 10px 20px;
+    background: #473314;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px;
+    width: auto;
+    transition: 0.2s box-shadow; }
+    #create input[type="submit"]:hover, #create input[type="submit"]:focus,
+    #create button:hover,
+    #create button:focus {
+      border: 0;
+      outline: 0;
+      transition: 0.2s box-shadow;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.404);
+      cursor: pointer; }
 
 form {
   display: flex; }

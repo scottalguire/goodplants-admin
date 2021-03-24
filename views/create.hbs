@@ -1,7 +1,7 @@
 <h1>{{title}}</h1>
-<form id="create" action="/api/create" method="POST" style="flex-wrap: wrap;">
+<form id="create" action="/api/create" method="POST">
 
-  <div class="row" style="display: flex; width: 100%; flex-shrink:0;">
+  <div class="row">
 
     <div class="col">
       <div>
@@ -21,8 +21,21 @@
       </div>
 
       <div>
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" placeholder="9.99">
+        <h3>Prices</h3>
+      </div>
+      <div class="repeater" data-repeater>
+        <div class="group">
+          <div class="col">
+            <div>
+              <label for="prices[0][label]">Price Label</label>
+              <input type="text" id="prices[0][label]" name="images[0][label]" placeholder="Small" class="half">
+            </div>
+            <div>
+              <label for="prices[0][value]">Price Amount</label>
+              <input type="text" id="prices[0][value]" name="images[0][value]" placeholder="4.99" class="half">
+            </div>
+          </div>
+        </div>
       </div>
 
       <div>
@@ -50,17 +63,24 @@
       <div>
         <h3>Images</h3>
       </div>
-      <div class="repeater">
+      <div class="repeater" data-repeater="image">
         <div class="group">
-          <div>
-            <label for="images[0][src]">Image URL</label>
-            <input type="text" id="images[0][src]" name="images[0][src]"
-              placeholder="./img/succulents/echeveria-lotus.png">
+          <div class="col">
+            <div class="img-wrap">
+              <img src="http://placehold.it/100x100" alt="">
+            </div>
           </div>
+          <div class="col">
+            <div>
+              <label for="images[0][src]">Image URL</label>
+              <input type="text" id="images[0][src]" name="images[0][src]"
+                placeholder="./img/succulents/echeveria-lotus.png" value="">
+            </div>
 
-          <div>
-            <label for="images[0][alt]">Image Alt</label>
-            <input type="text" id="images[0][alt]" name="images[0][alt]" placeholder="Echeveria">
+            <div>
+              <label for="images[0][alt]">Image Alt</label>
+              <input type="text" id="images[0][alt]" name="images[0][alt]" placeholder="Echeveria" value="">
+            </div>
           </div>
         </div>
       </div>
