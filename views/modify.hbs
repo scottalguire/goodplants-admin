@@ -49,13 +49,34 @@
     </div>
 
     <div>
-      <label for="image_url">Image URL</label>
+      <label for="image_url">Image URL (legacy)</label>
       <input type="text" id="image_url" name="image_url" value="{{plant.image.url}}">
     </div>
 
     <div>
-      <label for="image_alt">Image Alt</label>
+      <label for="image_alt">Image Alt (legacy)</label>
       <input type="text" id="image_alt" name="image_alt" value="{{plant.image.alt}}">
+    </div>
+
+    <div>
+      <h3>Images</h3>
+    </div>
+    <div class="repeater">
+      {{#each plant.images }}
+      <div class="group">
+        <div>
+          <label for="images[{{@index}}][src]">Image URL</label>
+          <input type="text" id="images[{{@index}}][src]" name="images[{{@index}}][src]"
+            placeholder="./img/succulents/echeveria-lotus.png" value="{{this.src}}">
+        </div>
+
+        <div>
+          <label for="images[{{@index}}][alt]">Image Alt</label>
+          <input type="text" id="images[{{@index}}][alt]" name="images[{{@index}}][alt]" placeholder="Echeveria"
+            value="{{this.alt}}">
+        </div>
+      </div>
+      {{/each}}
     </div>
 
     <input type="submit" value="submit">
@@ -63,59 +84,10 @@
   </div>
 
 </form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+  integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+  crossorigin="anonymous"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script>
 <script src="/js/tag-picker/index.min.js"></script>
-<script>
-  const pickers = document.querySelectorAll('[data-tag-picker]')
-  Array.from(pickers).forEach(p => new TP(p))
-</script>
-<script>
-  const formElem = document.getElementById('create')
-  const submitStatus = formElem.querySelector('.submit-status')
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    const form = e.currentTarget
-    const url = form.action
-    const data = new FormData(form)
-    // https://simonplend.com/how-to-use-fetch-to-post-form-data-as-json-to-your-api/
-    const plainFormData = Object.fromEntries(data.entries());
-    const formDataJsonString = JSON.stringify(plainFormData);
-    submitStatus.classList.add("sending")
-    submitStatus.textContent = "Sending..."
-
-    fetch(url, {
-      method: 'PATCH',
-      body: formDataJsonString,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: "application/json"
-      },
-    })
-      .then(res => res.json())
-      .then(json => {
-        console.log("res:", json)
-        submitStatus.classList.add("success")
-        submitStatus.textContent = "Success!"
-      })
-      .catch(err => {
-        console.log(err)
-        submitStatus.textContent = "Error: " + err
-        submitStatus.classList.add("error")
-      })
-      .finally(() => {
-        submitStatus.classList.remove("sending")
-
-        submitStatus.addEventListener('animationend', () => {
-          submitStatus.classList.remove("animate__animated", "animate__fadeOut", "success")
-          submitStatus.textContent = ""
-        })
-
-        submitStatus.classList.add("animate__animated", "animate__fadeOut")
-      })
-
-  }
-
-  formElem.addEventListener("submit", handleSubmit)
-</script>
+<script src="/js/input-group-repeater.js"></script>
+<script src="/js/modify.js"></script>

@@ -7,7 +7,7 @@
     "scientific_name": "t.stricta",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -28,7 +28,7 @@
     "scientific_name": "t.brachycaulos",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -49,7 +49,7 @@
     "scientific_name": "t.aeranthos",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -70,7 +70,7 @@
     "scientific_name": "t.capitata",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -91,7 +91,7 @@
     "scientific_name": "t.bulbosa",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -112,7 +112,7 @@
     "scientific_name": "t.streptophylla",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -133,7 +133,7 @@
     "scientific_name": "t.Tectorum",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -154,7 +154,7 @@
     "scientific_name": "t.xerographica",
     "family": "tillandsia",
     "categories": [
-      "airplant"
+      "air plant"
     ],
     "care": [
       "bright to moderate indirect light",
@@ -248,7 +248,12 @@
   },
   {
     "id": 13,
-    "price": "7.98",
+    "prices": [
+      {
+        "label": "Small",
+        "value": "7.98"
+      }
+    ],
     "name": "Aloe Flow",
     "description": "Hailing from South Africa, the Aloe Flow is a hybrid between the succulent \"Gasteria\" and the famed Aloe plant! While it may not be used to soothe your wounds, its deep evergreen spikes are perfect for decorating your home.",
     "scientific_name": "Echeveria",
@@ -261,8 +266,52 @@
       "url": "./img/succulents/echeveria-lotus.png",
       "alt": "Echeveria Lotus succulent"
     },
-    "plant_name": "Aloe",
-    "image_url": "./img/succulents/echeveria-lotus.png",
-    "image_alt": "Echeveria"
+    "images": [
+      {
+        "src": "./img/succulents/echeveria-lotus.png",
+        "alt": "Echeveria Lotus succulent"
+      }
+    ],
+    "plant_name": "Aloe"
+  },
+  {
+    "id": 14,
+    "price": "",
+    "name": "",
+    "description": "",
+    "scientific_name": "",
+    "family": "",
+    "genus": "",
+    "categories": [],
+    "care": [],
+    "image": {
+      "url": "",
+      "alt": "Plant"
+    }
+  },
+  {
+    "id": 15,
+    "price": "",
+    "name": "Name",
+    "description": "",
+    "scientific_name": "science",
+    "family": "",
+    "genus": "",
+    "categories": [],
+    "care": [],
+    "image": {
+      "url": "",
+      "alt": "Plant"
+    },
+    "images": [
+      {
+        "src": "./img/1.png",
+        "alt": "Plant"
+      },
+      {
+        "src": "./img/1.png",
+        "alt": "Plant"
+      }
+    ]
   }
 ]

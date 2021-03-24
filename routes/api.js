@@ -49,6 +49,7 @@ router.patch("/update/:id", function (req, res, next) {
       scientific_name,
       image_url,
       image_alt,
+      images,
     } = req.body;
 
     const currentPlant = json[matchIndex];
@@ -75,6 +76,7 @@ router.patch("/update/:id", function (req, res, next) {
       categories: (categories && categories.split(",").map((c) => c.trim())) || currentPlant.categories,
       care: (care && formatCare(care)) || currentPlant.care,
       image: { url: image_url || currentPlant.image.url, alt: image_alt || currentPlant.image.alt },
+      images: images || currentPlant.images,
     };
 
     const newJson = [...json];
@@ -87,39 +89,43 @@ router.patch("/update/:id", function (req, res, next) {
 });
 
 router.post("/create", function (req, res, next) {
-  getPlantsJSON().then((json) => {
-    const {
-      plant_name,
-      description,
-      price,
-      family,
-      genus,
-      categories,
-      care,
-      scientific_name,
-      image_url,
-      image_alt,
-    } = req.body;
+  getPlantsJSON()
+    .then((json) => {
+      const {
+        plant_name,
+        description,
+        price,
+        family,
+        genus,
+        categories,
+        care,
+        scientific_name,
+        image_url,
+        image_alt,
+        images,
+      } = req.body;
 
-    const plant = {
-      id: json.length + 1,
-      price: price || "",
-      name: plant_name || "",
-      description: description || "",
-      scientific_name: scientific_name || "",
-      family: family || "",
-      genus: genus || "",
-      categories: (categories && categories.split(",").map((c) => c.trim())) || [],
-      care: (care && formatCare(care)) || [],
-      image: { url: image_url || "", alt: image_alt || "Plant" },
-    };
+      const plant = {
+        id: json.length + 1,
+        price: price || "",
+        name: plant_name || "",
+        description: description || "",
+        scientific_name: scientific_name || "",
+        family: family || "",
+        genus: genus || "",
+        categories: (categories && categories.split(",").map((c) => c.trim())) || [],
+        care: (care && formatCare(care)) || [],
+        image: { url: image_url || "", alt: image_alt || "Plant" },
+        images: images || [],
+      };
 
-    const dataModified = [...json, plant];
+      const dataModified = [...json, plant];
 
-    updatePlantsJSON(dataModified).then(() => {
-      res.status(201).send(plant);
-    });
-  });
+      updatePlantsJSON(dataModified).then(() => {
+        res.status(201).send(plant);
+      });
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;

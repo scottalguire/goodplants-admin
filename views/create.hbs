@@ -1,99 +1,84 @@
 <h1>{{title}}</h1>
-<form id="create" action="/api/create" method="POST">
+<form id="create" action="/api/create" method="POST" style="flex-wrap: wrap;">
 
-  <div class="col">
-    <div>
-      <label for="plant_name">Plant Name</label>
-      <input type="text" id="plant_name" name="plant_name" placeholder="Aloe Flow">
+  <div class="row" style="display: flex; width: 100%; flex-shrink:0;">
+
+    <div class="col">
+      <div>
+        <label for="plant_name">Plant Name</label>
+        <input type="text" id="plant_name" name="plant_name" placeholder="Aloe Flow">
+      </div>
+
+      <div>
+        <label for="scientific_name">Scientific Name</label>
+        <input type="text" id="scientific_name" name="scientific_name" placeholder="Echeveria">
+      </div>
+
+      <div>
+        <label for="description">Description</label>
+        <textarea type="text" id="description" name="description"
+          placeholder="Hailing from South Africa, the..."></textarea>
+      </div>
+
+      <div>
+        <label for="price">Price</label>
+        <input type="text" id="price" name="price" placeholder="9.99">
+      </div>
+
+      <div>
+        <label for="family">Family</label>
+        <input type="text" id="family" name="family" placeholder="crassulaceae">
+      </div>
+
+      <div>
+        <label for="image_url">Genus</label>
+        <input type="text" id="genus" name="genus" placeholder="Gasteraloe">
+      </div>
+
     </div>
+    <div class="col">
+      <div>
+        <label for="categories">Categories</label>
+        <input type="text" id="categories" name="categories" data-tag-picker placeholder="Category 1, Category 2">
+      </div>
 
-    <div>
-      <label for="scientific_name">Scientific Name</label>
-      <input type="text" id="scientific_name" name="scientific_name" placeholder="Echeveria">
-    </div>
+      <div>
+        <label for="care">Care</label>
+        <input type="text" id="care" name="care" placeholder="bright full sun, partial shade">
+      </div>
 
-    <div>
-      <label for="description">Description</label>
-      <textarea type="text" id="description" name="description"
-        placeholder="Hailing from South Africa, the..."></textarea>
-    </div>
+      <div>
+        <h3>Images</h3>
+      </div>
+      <div class="repeater">
+        <div class="group">
+          <div>
+            <label for="images[0][src]">Image URL</label>
+            <input type="text" id="images[0][src]" name="images[0][src]"
+              placeholder="./img/succulents/echeveria-lotus.png">
+          </div>
 
-    <div>
-      <label for="price">Price</label>
-      <input type="text" id="price" name="price" placeholder="9.99">
-    </div>
+          <div>
+            <label for="images[0][alt]">Image Alt</label>
+            <input type="text" id="images[0][alt]" name="images[0][alt]" placeholder="Echeveria">
+          </div>
+        </div>
+      </div>
 
-    <div>
-      <label for="family">Family</label>
-      <input type="text" id="family" name="family" placeholder="crassulaceae">
-    </div>
-
-    <div>
-      <label for="image_url">Genus</label>
-      <input type="text" id="genus" name="genus" placeholder="Gasteraloe">
     </div>
 
   </div>
   <div class="col">
-    <div>
-      <label for="categories">Categories</label>
-      <input type="text" id="categories" name="categories" data-tag-picker placeholder="Category 1, Category 2">
-    </div>
-
-    <div>
-      <label for="care">Care</label>
-      <input type="text" id="care" name="care" placeholder="bright full sun, partial shade">
-    </div>
-
-    <div>
-      <label for="image_url">Image URL</label>
-      <input type="text" id="image_url" name="image_url" placeholder="./img/succulents/echeveria-lotus.png">
-    </div>
-
-    <div>
-      <label for="image_alt">Image Alt</label>
-      <input type="text" id="image_alt" name="image_alt" placeholder="Echeveria">
-    </div>
     <input type="submit" value="submit">
   </div>
 
 
 </form>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script>
+{{!--
+<script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script> --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+  integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+  crossorigin="anonymous"></script>
 <script src="/js/tag-picker/index.min.js"></script>
-<script>
-  const pickers = document.querySelectorAll('[data-tag-picker]')
-  Array.from(pickers).forEach(p => new TP(p))
-</script>
-<script>
-  const formElem = document.getElementById('create')
-
-  const handleSubmit = e => {
-    e.preventDefault()
-
-    const form = e.currentTarget
-    const url = form.action
-    const data = new FormData(form)
-    // https://simonplend.com/how-to-use-fetch-to-post-form-data-as-json-to-your-api/
-    const plainFormData = Object.fromEntries(data.entries());
-    const formDataJsonString = JSON.stringify(plainFormData);
-
-    fetch(url, {
-      method: 'POST',
-      body: formDataJsonString,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: "application/json"
-      },
-    })
-      .then(res => res.json())
-      .then(json => {
-        console.log("res:", json)
-        window.location.href = "/"
-      })
-      .catch(err => console.log("Error:", err))
-
-  }
-
-  formElem.addEventListener("submit", handleSubmit)
-</script>
+<script src="/js/input-group-repeater.js"></script>
+<script src="/js/create.js"></script>
