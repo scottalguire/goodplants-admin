@@ -17,7 +17,13 @@ const handleSubmit = (e) => {
     _.set(plainFormData, key, value);
   }
 
-  const formDataJsonString = JSON.stringify(plainFormData);
+  if (plainFormData.description) {
+    // FormData reencodes newline chars ("\n") in textareas as ("\r\n").
+    // We reverse this to allow the server markdown parser to properly handle new lines.
+    plainFormData.description = plainFormData.description.replace(/(\r\n)/g, "\n");
+  }
+
+  let formDataJsonString = JSON.stringify(plainFormData);
   submitStatus.classList.add("sending");
   submitStatus.textContent = "Sending...";
 

@@ -55,7 +55,7 @@ router.get("/", function (req, res, next) {
 });
 
 router.get("/create", function (req, res, next) {
-  res.render("create", { title: "Create Plant" });
+  res.render("create", { title: "Create Plant", image_base_url: process.env.IMAGE_BASE_URL });
 });
 
 router.get("/modify/:id", function (req, res, next) {
@@ -69,7 +69,11 @@ router.get("/modify/:id", function (req, res, next) {
       return;
     }
 
-    res.render("modify", { title: "Modify Plant", plant: json[matchIndex] });
+    res.render("modify", {
+      title: "Modify Plant",
+      image_base_url: process.env.IMAGE_BASE_URL,
+      plant: json[matchIndex],
+    });
   });
 });
 

@@ -24,17 +24,21 @@ const onKeyUp = (e) => {
 
     if (possibleGroup.classList.contains("group")) {
       const img = possibleGroup.querySelector("img");
+      const isAbsolute = new RegExp(/^(http|https|http:|https:|\/\/)/);
+      const isUrlAbsolutePath = isAbsolute.test(e.target.value);
+      const imageBaseUrl = document.querySelector("form").dataset.imageBaseUrl;
+      const imgUrl = isUrlAbsolutePath ? e.target.value : imageBaseUrl ? imageBaseUrl + e.target.value : e.target.value;
 
       const req = new XMLHttpRequest();
       const reqListener = function () {
         if (this.readyState === XMLHttpRequest.DONE) {
           console.log(this.status);
           if (this.status === 0 || (this.status >= 200 && this.status < 400)) {
-            img.src = e.target.value;
+            img.src = imgUrl;
           }
         }
       };
-      req.open("GET", e.target.value);
+      req.open("GET", imgUrl);
       req.addEventListener("readystatechange", reqListener);
       req.send(null);
     }

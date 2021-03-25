@@ -1,6 +1,8 @@
-var express = require("express");
-var router = express.Router();
+const express = require("express");
+const marked = require("marked");
 const { getPlantsJSON, updatePlantsJSON } = require("../utils");
+
+const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -72,12 +74,14 @@ router.patch("/update/:id", function (req, res, next) {
       prices: prices || currentPlant.prices || [],
       name: plant_name || currentPlant.name,
       description: description || currentPlant.description,
+      descriptionHtml:
+        (description && marked(description, { breaks: true, gfm: true })) || currentPlant.descriptionHtml || "",
       scientific_name: scientific_name || currentPlant.scientific_name,
       family: family || currentPlant.family,
       genus: genus || currentPlant.genus,
       categories: (categories && categories.split(",").map((c) => c.trim())) || currentPlant.categories,
       care: (care && formatCare(care)) || currentPlant.care,
-      image: { url: image_url || currentPlant.image.url, alt: image_alt || currentPlant.image.alt },
+      image: { url: image_url || currentPlant.image_url, alt: image_alt || currentPlant.image_alt },
       images: images || currentPlant.images || [{ src: "https://source.unsplash.com/200x200?plant", alt: "Plant" }],
     };
 
@@ -114,6 +118,7 @@ router.post("/create", function (req, res, next) {
         prices: prices || [],
         name: plant_name || "",
         description: description || "",
+        descriptionHtml: (description && marked(description, { breaks: true, gfm: true })) || "",
         scientific_name: scientific_name || "",
         family: family || "",
         genus: genus || "",

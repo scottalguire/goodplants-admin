@@ -16,7 +16,13 @@ const handleSubmit = (e) => {
   for (const [key, value] of data.entries()) {
     _.set(plainFormData, key, value);
   }
-  console.log(plainFormData);
+
+  if (plainFormData.description) {
+    // FormData reencodes newline chars ("\n") in textareas as ("\r\n").
+    // We reverse this to allow the server markdown parser to properly handle new lines.
+    plainFormData.description = plainFormData.description.replace(/(\r\n)/g, "\n");
+  }
+
   const formDataJsonString = JSON.stringify(plainFormData);
 
   fetch(url, {

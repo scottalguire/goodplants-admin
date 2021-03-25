@@ -334,14 +334,38 @@
     "genus": "",
     "categories": [],
     "care": [],
+    "images": [
+      {
+        "src": "https://source.unsplash.com/200x200?plant",
+        "alt": "Plant"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "price": "",
+    "prices": [
+      {
+        "label": "",
+        "value": ""
+      }
+    ],
+    "name": "",
+    "description": "",
+    "descriptionHtml": "",
+    "scientific_name": "",
+    "family": "",
+    "genus": "",
+    "categories": [],
+    "care": [],
     "image": {
       "url": "",
       "alt": "Plant"
     },
     "images": [
       {
-        "src": "https://source.unsplash.com/200x200?plant",
-        "alt": "Plant"
+        "src": "",
+        "alt": ""
       }
     ]
   }

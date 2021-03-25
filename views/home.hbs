@@ -18,7 +18,8 @@
     {{#each data}}
     <tr>
       <td>{{ id }}</td>
-      <td><img src="{{ ../image_base_url }}{{format_relative_image_path image.url }}" alt="{{image.alt}}" /></td>
+      <td><img src="{{#if images}}{{format_image_path images.0.src }}{{/if}}"
+          alt="{{#if images}}{{images.0.alt}}{{/if}}" /></td>
       <td>{{name}} <em>({{scientific_name}})</em></td>
       <td>{{ price }}</td>
       <td>{{ family }}</td>

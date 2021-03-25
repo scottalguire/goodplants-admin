@@ -1,5 +1,5 @@
-const fs = require("fs")
-const path = require("path")
+const fs = require("fs");
+const path = require("path");
 
 /**
  * Retreives the .json data file, converts it to a JSON object, and returns a Promise
@@ -13,14 +13,14 @@ function getPlantsJSON() {
       },
       (err, data) => {
         if (err) {
-          reject(err)
-          throw new Error(err)
+          reject(err);
+          throw new Error(err);
         }
 
-        resolve(JSON.parse(data))
+        resolve(JSON.parse(data));
       }
-    )
-  })
+    );
+  });
 }
 
 /**
@@ -29,18 +29,14 @@ function getPlantsJSON() {
  */
 function updatePlantsJSON(json) {
   return new Promise((resolve, reject) => {
-    fs.writeFile(
-      path.resolve(process.cwd(), process.env.DATA_PATH),
-      JSON.stringify(json, null, 2),
-      (err) => {
-        if (err) reject(err)
-        resolve()
-      }
-    )
-  })
+    fs.writeFile(path.resolve(process.cwd(), process.env.DATA_PATH), JSON.stringify(json, null, 2), (err) => {
+      if (err) reject(err);
+      resolve();
+    });
+  });
 }
 
 module.exports = {
   getPlantsJSON,
   updatePlantsJSON,
-}
+};

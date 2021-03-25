@@ -1,5 +1,5 @@
 <h1>{{title}}</h1>
-<form id="create" action="/api/create" method="POST">
+<form id="create" action="/api/create" method="POST" data-image-base-url="{{image_base_url}}">
 
   <div class="row">
 
@@ -96,6 +96,10 @@
 </form>
 {{!--
 <script src="https://polyfill.io/v3/polyfill.min.js?features=Object.fromEntries"></script> --}}
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script>
+  var simplemde = new SimpleMDE({ element: document.getElementById("description") });
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
   integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
   crossorigin="anonymous"></script>
